@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cloud Resume</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #0056b3; margin-bottom: 5px; }
+        h2 { border-bottom: 2px solid #0056b3; padding-bottom: 5px; color: #333; }
+        .contact { margin-bottom: 20px; font-style: italic; color: #666; }
+        .counter { text-align: center; margin-top: 30px; font-weight: bold; background: #e3f2fd; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<script>
+    // Aapki live API URL ko yahan paste karein
+    const apiURL = "https://ku5tnmcu73.execute-api.us-east-1.amazonaws.com/counter"; 
+
+    async function getCounter() {
+        try {
+            let response = await fetch(apiURL);
+            let data = await response.json();
+            document.getElementById("count").innerText = data.count;
+        } catch (error) {
+            console.log("Error fetching counter:", error);
+        }
+    }
+    // Website load hote hi count fetch karein
+    getCounter();
+</script>
+<body>
+    <div class="container">
+        <h1>Navneet</h1>
+        <p class="contact">Email: navneet@gmail.com | LinkedIn: ://linkedin.com</p>
+        
+        <h2>Objective</h2>
+        <p>Motivated IT Support Intern transitioning into a Cloud/DevOps Engineer role. Hands-on experience with AWS and Infrastructure as Code (Terraform).</p>
+
+        <h2>Experience</h2>
+        <h3>IT Support Intern - Netsol India Pvt Ltd.</h3>
+        <p><em> 2026 - Present</em></p>
+        <ul>
+            <li>Managed daily system operations, active directories, and internal network troubleshooting.</li>
+            <li>Assisted in basic server migrations and cloud infrastructure auditing.</li>
+        </ul>
+
+        <h2>Projects</h2>
+        <h3>Automated Cloud Network via Terraform</h3>
+        <p>Deployed a complete Custom VPC, Subnets, and an automated Apache Web Server on AWS using Terraform IaC scripts.</p>
+
+        <!-- Visitor Counter Section (Future Step) -->
+        <div class="counter">
+            <p>📋 This page has been viewed <span id="count">0</span> times.</p>
+        </div>
+    </div>
+</body>
+</html>
